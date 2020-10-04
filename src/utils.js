@@ -6,6 +6,7 @@ export function col(content) {
   return `<div class="col-sm">${content}</div>`
 }
 
+// преобразовывает объект со стилями в строку
 export function css(styles = {}) {
   // Наиболее оптимальный способ итерации по объекту
   /*const keys = Object.keys(styles)
