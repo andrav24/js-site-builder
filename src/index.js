@@ -1,12 +1,6 @@
 import {model} from './model'   // named import
 import './styles/main.css'
+import {App} from './classes/app';
 
-const $site = document.querySelector('#site')
 
-/*const key = 'heading'
-console.log(templates[key]);
-console.log(templates[key]({value: 'test'}));*/
-
-model.forEach(block => {
-    $site.insertAdjacentHTML('beforeend', block.toHTML())
-})
+const app = new App(model)

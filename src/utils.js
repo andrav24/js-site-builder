@@ -8,14 +8,25 @@ export function col(content) {
 
 // преобразовывает объект со стилями в строку
 export function css(styles = {}) {
-  // Наиболее оптимальный способ итерации по объекту
-  /*const keys = Object.keys(styles)
-  const array = keys.map(key => {
-    return `${key}: ${styles[key]}`
-  })
-  return array.join(';')*/
+  if (typeof styles === 'string') return styles
 
-  // более красивый вид того, что написано выше
+  // Наиболее оптимальный способ итерации по объекту
   const toString = key => `${key}: ${styles[key]}`
   return Object.keys(styles).map(toString).join(';')
+}
+
+export function block(type) {
+  return `
+    <form name="${type}">
+      <h5>${type}</h5>
+      <div class="form-group">
+        <input class="form-control form-control-sm" name="value" placeholder="value">
+      </div>
+      <div class="form-group">
+        <input class="form-control form-control-sm" name="styles" placeholder="styles">
+      </div>
+      <button type="submit" class="btn btn-primary btn-sm">Add</button>
+    </form>
+    <hr/>
+  `
 }
